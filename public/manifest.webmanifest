@@ -1,0 +1,28 @@
+{
+  "id": "/",
+  "name": "LocatifPro - SaaS Universel de Gestion Locative",
+  "short_name": "LocatifPro",
+  "description": "Logiciel de gestion locative et hôtelière tout-en-un pour smartphone, tablette et ordinateur : fiches PDF chambres, paiements mobiles, audit informatique et états des lieux.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "lang": "fr",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/assets/aistudio/1794661876158_210f17d4.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

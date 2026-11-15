@@ -1,0 +1,6 @@
+{
+  "name": "KaziRent - SaaS Universel de Gestion Locative",
+  "description": "Plateforme SaaS tout-en-un de gestion locative multi-rôles pour l'Afrique Centrale et internationale : enrôlement par code de bail sans QR code, paiements M-Pesa/Airtel/Orange/Banques, pénalités configurables, états des lieux tactiles et support multilingue 4 langues.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

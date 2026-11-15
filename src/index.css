@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --md-primary: #1D4ED8;
+  --md-accent: #0D9488;
+  --md-success: #16A34A;
+  --md-warning: #EA580C;
+  --md-error: #DC2626;
+  --md-surface: #FFFFFF;
+  --md-canvas: #F4F6FA;
+  --md-border: #E2E8F0;
+  --md-radius: 12px;
+  --md-motion: 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dark {
+  --md-primary: #3B82F6;
+  --md-accent: #14B8A6;
+  --md-surface: #0F172A;
+  --md-canvas: #090D16;
+  --md-border: #1E293B;
+}
+
+@layer base {
+  html, body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--md-canvas);
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    text-wrap: balance;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* Uniform Lucide stroke width across the entire application */
+  svg.lucide {
+    stroke-width: 1.75;
+  }
+
+  /* Tabular numerals for strict vertical alignment of amounts & metrics */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.28);
+    border-radius: 9999px;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Modern Rich Animations (GPU-composited & non-blocking) */
+@keyframes mdFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mdSubTabFade {
+  0% {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes mdSheetUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.03);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-140%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(240%) skewX(-20deg);
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+.animate-tab-content {
+  animation: mdFadeSlideUp 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-subtab-content {
+  animation: mdSubTabFade 210ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-sheet-up {
+  animation: mdSheetUp 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-float {
+  animation: ambientFloat 5.5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: ambientFloat 8s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-stagger-1 {
+  animation: mdFadeSlideUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 40ms both;
+}
+.animate-stagger-2 {
+  animation: mdFadeSlideUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 90ms both;
+}
+.animate-stagger-3 {
+  animation: mdFadeSlideUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 140ms both;
+}
+.animate-stagger-4 {
+  animation: mdFadeSlideUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 190ms both;
+}
+
+.shimmer-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  animation: shimmerSweep 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-tab-content,
+  .animate-subtab-content,
+  .animate-sheet-up,
+  .animate-float,
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-pulse-ring,
+  .animate-stagger-1,
+  .animate-stagger-2,
+  .animate-stagger-3,
+  .animate-stagger-4 {
+    animation: none;
+  }
+  .shimmer-sheen::after {
+    animation: none;
+  }
+}
